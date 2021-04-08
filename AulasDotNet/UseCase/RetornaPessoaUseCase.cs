@@ -1,6 +1,7 @@
 ﻿using AulasDotNet.Borders.Repositorios;
 using AulasDotNet.Borders.UseCase;
 using AulasDotNet.DTO.Pessoa.RetornarPessoaPorId;
+using AulasDotNet.Repositorios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,18 +12,24 @@ namespace AulasDotNet.UseCase
     public class RetornaPessoaUseCase : IRetornaPessoaUseCase
     {
         private readonly IRepositorioPessoas _repositorioPessoas;
-        public RetonarPessoaResponse Executar(int request)
+
+        public RetornaPessoaUseCase(IRepositorioPessoas repositorioPessoas)
+        {
+            _repositorioPessoas = repositorioPessoas;
+        }
+
+        public RetonarPessoaResponse Executar(RetonarPessoaRequest request)
         {
             var response = new RetonarPessoaResponse();
             try
             {
-                _repositorioPessoas.RetornaPorId(request);
-                response.msg = "Removido com sucesso";
+                response.pessoa = _repositorioPessoas.RetornaPorId(request.id);
+                response.msg = "Retornado com sucesso";
                 return response;
             }
             catch
             {
-                response.msg = "Erro ao Remover";
+                response.msg = "Erro ao Retornar";
                 return response;
             }
         }

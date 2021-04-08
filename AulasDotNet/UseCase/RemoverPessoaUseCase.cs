@@ -12,12 +12,18 @@ namespace AulasDotNet.UseCase
     public class RemoverPessoaUseCase : IRemoverPessoaUseCase
     {
         private readonly IRepositorioPessoas _repositorioPessoas;
-        public RemoverPessoaResponse Executar(int id)
+
+        public RemoverPessoaUseCase(IRepositorioPessoas repositorioPessoas)
+        {
+            _repositorioPessoas = repositorioPessoas;
+        }
+
+        public RemoverPessoaResponse Executar(RemoverPessoaRequest request)
         {
             var response = new RemoverPessoaResponse();
             try
             {
-                _repositorioPessoas.Delete(id);
+                _repositorioPessoas.Delete(request.id);
                 response.msg = "Removido com sucesso";
                 return response;
             }

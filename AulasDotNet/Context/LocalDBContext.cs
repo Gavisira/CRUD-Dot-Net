@@ -14,6 +14,7 @@ namespace AulasDotNet.Context
         }
 
         public DbSet<Pessoa> pessoa { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 

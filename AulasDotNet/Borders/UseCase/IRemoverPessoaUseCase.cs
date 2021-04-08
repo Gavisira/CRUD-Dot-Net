@@ -8,6 +8,6 @@ namespace AulasDotNet.Borders.UseCase
 {
     public interface IRemoverPessoaUseCase
     {
-        RemoverPessoaResponse Executar(int request);
+        RemoverPessoaResponse Executar(RemoverPessoaRequest  request);
     }
 }

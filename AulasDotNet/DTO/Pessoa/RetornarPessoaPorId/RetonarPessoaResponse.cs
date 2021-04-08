@@ -7,6 +7,7 @@ namespace AulasDotNet.DTO.Pessoa.RetornarPessoaPorId
 {
     public class RetonarPessoaResponse
     {
+        public AulasDotNet.Entities.Pessoa pessoa { get; set; }
         public string msg { get; set; }
     }
 }

@@ -7,5 +7,6 @@ namespace AulasDotNet.DTO.Pessoa.RemoverPessoa
 {
     public class RemoverPessoaRequest
     {
+        public int id { get; set; }
     }
 }

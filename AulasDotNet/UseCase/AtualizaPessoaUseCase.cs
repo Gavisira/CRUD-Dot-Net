@@ -13,6 +13,13 @@ namespace AulasDotNet.UseCase
     {
         private readonly IRepositorioPessoas _repositorioPessoas;
         private readonly IAtualizarPessoaAdapter _adapter;
+
+        public AtualizaPessoaUseCase(IRepositorioPessoas repositorioPessoas, IAtualizarPessoaAdapter adapter)
+        {
+            _repositorioPessoas = repositorioPessoas;
+            _adapter = adapter;
+        }
+
         public AtualizarPessoaResponse Executar(AtualizarPessoaRequest request)
         {
             var response = new AtualizarPessoaResponse();

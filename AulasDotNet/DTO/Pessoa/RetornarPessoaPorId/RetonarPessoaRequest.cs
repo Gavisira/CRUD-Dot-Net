@@ -7,5 +7,6 @@ namespace AulasDotNet.DTO.Pessoa.RetornarPessoaPorId
 {
     public class RetonarPessoaRequest
     {
+        public int id { get; set; }
     }
 }

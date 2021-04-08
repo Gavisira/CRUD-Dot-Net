@@ -11,18 +11,24 @@ namespace AulasDotNet.UseCase
     public class RetornaListaPessoaUseCase : IRetornaListaPessoaUseCase
     {
         private readonly IRepositorioPessoas _repositorioPessoas;
+
+        public RetornaListaPessoaUseCase(IRepositorioPessoas repositorioPessoas)
+        {
+            _repositorioPessoas = repositorioPessoas;
+        }
+
         public RetornarListaPessoaResponse Executar()
         {
             var response = new RetornarListaPessoaResponse();
             try
             {
-                _repositorioPessoas.RetornarListaPessoas();
-                response.msg = "Removido com sucesso";
+                response.pessoas = _repositorioPessoas.RetornarListaPessoas();
+                response.msg = "Retornado com sucesso";
                 return response;
             }
             catch
             {
-                response.msg = "Erro ao Remover";
+                response.msg = "Erro ao Retornar";
                 return response;
             }
         }
