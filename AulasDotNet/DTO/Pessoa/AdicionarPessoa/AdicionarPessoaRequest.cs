@@ -8,6 +8,7 @@ namespace AulasDotNet.DTO.Pessoa.AdicionarPessoa
 
     public class AdicionarPessoaRequest
     {
+        public int id { get; set; }
         public string nome { get; set; }
 
         public DateTime dtNascimento { get; set; }

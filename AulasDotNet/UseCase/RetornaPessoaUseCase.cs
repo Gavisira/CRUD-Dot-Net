@@ -18,12 +18,12 @@ namespace AulasDotNet.UseCase
             _repositorioPessoas = repositorioPessoas;
         }
 
-        public RetonarPessoaResponse Executar(int request)
+        public RetornarPessoaResponse Executar(RetornarPessoaRequest request)
         {
-            var response = new RetonarPessoaResponse();
+            var response = new RetornarPessoaResponse();
             try
             {
-                response.pessoa = _repositorioPessoas.RetornaPorId(request);
+                response.pessoa = _repositorioPessoas.RetornaPorId(request.id);
                 response.msg = "Retornado com sucesso";
                 return response;
             }

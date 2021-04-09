@@ -6,7 +6,7 @@ using AulasDotNet.Entities;
 
 namespace AulasDotNet.DTO.Pessoa.RetornarPessoaPorId
 {
-    public class RetonarPessoaRequest
+    public class RetornarPessoaRequest
     {
         public int id { get; set; }
     }

@@ -13,6 +13,7 @@ namespace AulasDotNet.Adapter
         public Pessoa ConverterRequestParaPessoa(AtualizarPessoaRequest request)
         {
             var novaPessoa = new Pessoa();
+            novaPessoa.id = request.id;
             novaPessoa.nome = request.nome;
             novaPessoa.dtNascimento = request.dtNascimento;
             novaPessoa.endereco = request.endereco;

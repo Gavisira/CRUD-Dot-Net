@@ -20,41 +20,47 @@ namespace AulasDotNet.Controllers
     [ApiController]
     public class PessoaController : ControllerBase
     {
+
+
         private readonly ILogger<PessoaController> _logger;
         private readonly IPessoaService _pessoa;
+
+
         private readonly IAdicionaPessoaUseCase _adicionarPessoaUseCase;
         private readonly IAtualizaPessoaUseCase _atualizarPessoaUseCase;
         private readonly IRemoverPessoaUseCase _removerPessoaUseCase;
-        private readonly IRetornaListaPessoaUseCase _rtornarListaPessoaUseCase;
-        private readonly IRetornaPessoaUseCase _rtornaPessoaUseCase;
+        private readonly IRetornaListaPessoaUseCase _retornarListaPessoaUseCase;
+        private readonly IRetornaPessoaUseCase _retornaPessoaUseCase;
 
         public PessoaController
-            (ILogger<PessoaController> logger, 
-            IPessoaService pessoa, 
-            IAdicionaPessoaUseCase adicionarPessoaUseCase, 
-            IAtualizaPessoaUseCase atualizarPessoaUseCase, 
-            IRemoverPessoaUseCase removerPessoaUseCase, 
-            IRetornaListaPessoaUseCase rtornarListaPessoaUseCase, 
-            IRetornaPessoaUseCase rtornaPessoaUseCase)
+            (ILogger<PessoaController> logger,
+            IPessoaService pessoa,
+            IAdicionaPessoaUseCase adicionarPessoaUseCase,
+            IAtualizaPessoaUseCase atualizarPessoaUseCase,
+            IRemoverPessoaUseCase removerPessoaUseCase,
+            IRetornaListaPessoaUseCase retornarListaPessoaUseCase,
+            IRetornaPessoaUseCase retornaPessoaUseCase)
         {
             _logger = logger;
             _pessoa = pessoa;
             _adicionarPessoaUseCase = adicionarPessoaUseCase;
             _atualizarPessoaUseCase = atualizarPessoaUseCase;
             _removerPessoaUseCase = removerPessoaUseCase;
-            _rtornarListaPessoaUseCase = rtornarListaPessoaUseCase;
-            _rtornaPessoaUseCase = rtornaPessoaUseCase;
+            _retornarListaPessoaUseCase = retornarListaPessoaUseCase;
+            _retornaPessoaUseCase = retornaPessoaUseCase;
         }
 
         [HttpGet]
         public IActionResult AllPessoas()
         {
-            return Ok(_rtornarListaPessoaUseCase.Executar());
+            return Ok(_retornarListaPessoaUseCase.Executar());
         }
         [HttpGet("{id}")]
-        public IActionResult Pessoa([FromBody] int id)
+        public IActionResult Pessoa(int id)
         {
-            return Ok(_rtornaPessoaUseCase.Executar(id));
+            var request = new RetornarPessoaRequest();
+            request.id = id;
+            return Ok(_retornaPessoaUseCase.Executar(request));
         }
 
         [HttpPost]
@@ -67,9 +73,11 @@ namespace AulasDotNet.Controllers
         {
             return Ok(_atualizarPessoaUseCase.Executar(novaPessoa));
         }
-        [HttpDelete]
-        public IActionResult PessoaDelete([FromBody] RemoverPessoaRequest request)
+        [HttpDelete("{id}")]
+        public IActionResult PessoaDelete(int id)
         {
+            var request = new RemoverPessoaRequest();
+            request.id = id;
             return Ok(_removerPessoaUseCase.Executar(request));
         }
     }
