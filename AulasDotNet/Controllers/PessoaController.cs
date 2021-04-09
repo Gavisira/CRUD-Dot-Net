@@ -52,9 +52,9 @@ namespace AulasDotNet.Controllers
             return Ok(_rtornarListaPessoaUseCase.Executar());
         }
         [HttpGet("{id}")]
-        public IActionResult Pessoa([FromBody] RetonarPessoaRequest novaPessoa)
+        public IActionResult Pessoa([FromBody] int id)
         {
-            return Ok(_rtornaPessoaUseCase.Executar(novaPessoa));
+            return Ok(_rtornaPessoaUseCase.Executar(id));
         }
 
         [HttpPost]

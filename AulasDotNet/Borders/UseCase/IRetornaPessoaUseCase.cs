@@ -8,6 +8,6 @@ namespace AulasDotNet.Borders.UseCase
 {
     public interface IRetornaPessoaUseCase
     {
-        RetonarPessoaResponse Executar(RetonarPessoaRequest request);
+        RetonarPessoaResponse Executar(int request);
     }
 }

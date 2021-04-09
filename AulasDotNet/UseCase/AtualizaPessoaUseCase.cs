@@ -27,7 +27,7 @@ namespace AulasDotNet.UseCase
             {
 
                 var pessoaAdicionar = _adapter.ConverterRequestParaPessoa(request);
-                _repositorioPessoas.Add(pessoaAdicionar);
+                _repositorioPessoas.Update(pessoaAdicionar);
 
 
                 response.msg = "Atualizado com sucesso";

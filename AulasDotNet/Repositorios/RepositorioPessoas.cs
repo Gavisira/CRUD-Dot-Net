@@ -33,7 +33,14 @@ namespace AulasDotNet.Repositorios
 
         public Pessoa RetornaPorId(int id)
         {
-           return _local.pessoa.Where(d => d.id == id).FirstOrDefault();
+            foreach(Pessoa p in _local.pessoa)
+            {
+                if (p.id.Equals(id))
+                {
+                    return p;
+                } 
+            }
+            return null;
         }
 
         public List<Pessoa> RetornarListaPessoas()
