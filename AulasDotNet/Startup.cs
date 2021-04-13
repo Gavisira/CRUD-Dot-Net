@@ -1,5 +1,11 @@
+using AulasDotNet.Adapter;
+using AulasDotNet.Borders.Adapter;
+using AulasDotNet.Borders.Repositorios;
+using AulasDotNet.Borders.UseCase;
 using AulasDotNet.Context;
+using AulasDotNet.Repositorios;
 using AulasDotNet.Services;
+using AulasDotNet.UseCase;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,8 +36,24 @@ namespace AulasDotNet
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddEntityFrameworkNpgsql().AddDbContext<LocalDBContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("postgresql")));
+
             services.AddScoped<IPessoaService, PessoaService>();
+
+
+            services.AddScoped<IAdicionaPessoaUseCase, AdicionaPessoaUseCase>();
+            services.AddScoped<IAtualizaPessoaUseCase, AtualizaPessoaUseCase>();
+            services.AddScoped<IRemoverPessoaUseCase, RemovePessoaUseCase>();
+            services.AddScoped<IRetornaListaPessoaUseCase, RetornaListaPessoaUseCase>();
+            services.AddScoped<IRetornaPessoaUseCase, RetornaPessoaUseCase>();
+            services.AddScoped<IRepositorioPessoas, RepositorioPessoas>();
+            services.AddScoped<IAdicionarPessoaAdapter, AdicionarPessoaAdapter>();
+            services.AddScoped<IAtualizarPessoaAdapter, AtualizarPessoaAdapter>();
+
             services.AddControllers();
+
+
+
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "AulasDotNet", Version = "v1" });
