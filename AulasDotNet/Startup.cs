@@ -42,7 +42,7 @@ namespace AulasDotNet
 
             services.AddScoped<IAdicionaPessoaUseCase, AdicionaPessoaUseCase>();
             services.AddScoped<IAtualizaPessoaUseCase, AtualizaPessoaUseCase>();
-            services.AddScoped<IRemoverPessoaUseCase, RemoverPessoaUseCase>();
+            services.AddScoped<IRemoverPessoaUseCase, RemovePessoaUseCase>();
             services.AddScoped<IRetornaListaPessoaUseCase, RetornaListaPessoaUseCase>();
             services.AddScoped<IRetornaPessoaUseCase, RetornaPessoaUseCase>();
             services.AddScoped<IRepositorioPessoas, RepositorioPessoas>();

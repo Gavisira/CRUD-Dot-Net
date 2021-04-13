@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace AulasDotNet.UseCase
 {
-    public class RemoverPessoaUseCase : IRemoverPessoaUseCase
+    public class RemovePessoaUseCase : IRemoverPessoaUseCase
     {
         private readonly IRepositorioPessoas _repositorioPessoas;
 
-        public RemoverPessoaUseCase(IRepositorioPessoas repositorioPessoas)
+        public RemovePessoaUseCase(IRepositorioPessoas repositorioPessoas)
         {
             _repositorioPessoas = repositorioPessoas;
         }

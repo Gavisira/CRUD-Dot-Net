@@ -18,17 +18,20 @@ namespace AulasDotNet.Repositorios
             _local = local;
         }
 
-        public void Add(Pessoa request)
+        public int Add(Pessoa request)
         {
             _local.pessoa.Add(request);
             _local.SaveChanges();
+            return request.id;
         }
 
-        public void Delete(int id)
+        public bool Delete(int id)
         {
             var obj = _local.pessoa.Where(d => d.id == id).FirstOrDefault();
             _local.pessoa.Remove(obj);
             _local.SaveChanges();
+            return true;
+
         }
 
         public Pessoa RetornaPorId(int id)

@@ -9,9 +9,9 @@ namespace AulasDotNet.Borders.Repositorios
 {
     public interface IRepositorioPessoas
     {
-        public void Add(Pessoa request);
+        public int Add(Pessoa request);
         public void Update(Pessoa request);
-        public void Delete(int id);
+        public bool Delete(int id);
         public Pessoa RetornaPorId(int id);
         public List<Pessoa> RetornarListaPessoas();
     }
