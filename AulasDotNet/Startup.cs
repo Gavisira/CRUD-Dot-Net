@@ -4,7 +4,6 @@ using AulasDotNet.Borders.Repositorios;
 using AulasDotNet.Borders.UseCase;
 using AulasDotNet.Context;
 using AulasDotNet.Repositorios;
-using AulasDotNet.Services;
 using AulasDotNet.UseCase;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -36,8 +35,6 @@ namespace AulasDotNet
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddEntityFrameworkNpgsql().AddDbContext<LocalDBContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("postgresql")));
-
-            services.AddScoped<IPessoaService, PessoaService>();
 
 
             services.AddScoped<IAdicionaPessoaUseCase, AdicionaPessoaUseCase>();

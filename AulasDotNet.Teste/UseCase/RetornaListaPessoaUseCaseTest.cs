@@ -59,6 +59,6 @@ namespace AulasDotNet.Teste.UseCase
             var result = _useCase.Executar();
 
             response.Should().BeEquivalentTo(result);
-        }
+        } 
     }
 }

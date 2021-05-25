@@ -37,7 +37,7 @@ namespace AulasDotNet.Repositorios
         public Pessoa RetornaPorId(int id)
         {
             foreach(Pessoa p in _local.pessoa)
-            {
+            { 
                 if (p.id.Equals(id))
                 {
                     return p;

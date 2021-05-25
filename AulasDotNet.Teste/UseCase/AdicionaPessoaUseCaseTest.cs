@@ -33,7 +33,7 @@ namespace AulasDotNet.Teste.UseCase
         public void Pessoa_AdicionaPessoa_Sucesso()
         {
             var request = new AdicionarPessoaRequestBuilder().Build();
-            var response = new AdicionarPessoaResponse();
+            var response = new AdicionarPessoaResponse(); 
             var pessoa = new Pessoa();
             var produtoId = 1;
            

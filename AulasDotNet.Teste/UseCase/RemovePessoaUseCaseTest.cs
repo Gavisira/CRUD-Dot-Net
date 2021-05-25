@@ -42,7 +42,7 @@ namespace AulasDotNet.Teste.UseCase
             var result = _useCase.Executar(request);
 
             response.Should().BeEquivalentTo(result);
-        }
+        } 
 
         [Fact]
         public void Pessoa_RemovePessoa_Falha()

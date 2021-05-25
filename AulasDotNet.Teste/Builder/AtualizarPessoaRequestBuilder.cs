@@ -20,7 +20,7 @@ namespace AulasDotNet.Teste.Builder
             _AtualizarPessoa.dtNascimento = _faker.Person.DateOfBirth;
             _AtualizarPessoa.endereco = _faker.Random.String(20);
 
-        }
+        } 
 
         public AtualizarPessoaRequest Build()
         {

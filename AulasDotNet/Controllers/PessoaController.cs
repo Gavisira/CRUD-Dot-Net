@@ -4,7 +4,7 @@ using AulasDotNet.DTO.Pessoa.AtualizarPessoa;
 using AulasDotNet.DTO.Pessoa.RemoverPessoa;
 using AulasDotNet.DTO.Pessoa.RetornarPessoaPorId;
 using AulasDotNet.Entities;
-using AulasDotNet.Services;
+
 using AulasDotNet.UseCase;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -22,8 +22,7 @@ namespace AulasDotNet.Controllers
     {
 
 
-        private readonly ILogger<PessoaController> _logger;
-        private readonly IPessoaService _pessoa;
+
 
 
         private readonly IAdicionaPessoaUseCase _adicionarPessoaUseCase;
@@ -33,16 +32,13 @@ namespace AulasDotNet.Controllers
         private readonly IRetornaPessoaUseCase _retornaPessoaUseCase;
 
         public PessoaController
-            (ILogger<PessoaController> logger,
-            IPessoaService pessoa,
+            (
             IAdicionaPessoaUseCase adicionarPessoaUseCase,
             IAtualizaPessoaUseCase atualizarPessoaUseCase,
             IRemoverPessoaUseCase removerPessoaUseCase,
             IRetornaListaPessoaUseCase retornarListaPessoaUseCase,
             IRetornaPessoaUseCase retornaPessoaUseCase)
         {
-            _logger = logger;
-            _pessoa = pessoa;
             _adicionarPessoaUseCase = adicionarPessoaUseCase;
             _atualizarPessoaUseCase = atualizarPessoaUseCase;
             _removerPessoaUseCase = removerPessoaUseCase;

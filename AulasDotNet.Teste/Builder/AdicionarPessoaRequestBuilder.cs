@@ -19,7 +19,7 @@ namespace AulasDotNet.Teste.Builder
             _adicionarPessoa.nome = _faker.Random.String(20);
             _adicionarPessoa.dtNascimento = _faker.Person.DateOfBirth;
             _adicionarPessoa.endereco = _faker.Random.String(20);
-
+             
         }
 
         public AdicionarPessoaRequest Build()

@@ -18,7 +18,7 @@ namespace AulasDotNet.Entities
         public DateTime dtNascimento { get; set; }
 
         public string nomeMae { get; set; }
-
+         
         public string endereco { get; set; }
 
 
